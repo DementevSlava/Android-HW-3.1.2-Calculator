@@ -3,21 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-
-    <TextView
+    android:orientation="vertical"
+    android:padding="16dp">
+    <LinearLayout
         android:id="@+id/result"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/zero"
-        android:textSize="20sp"
-        android:gravity="end"
-        android:padding="24dp" />
-    <LinearLayout
-        android:id="@+id/firstRowLayout"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/resultField"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/operationField"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+    <EditText
+        android:id="@+id/numberField"
         android:layout_below="@+id/result"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+         />
+    <LinearLayout
+        android:background="#cccccc"
+        android:id="@+id/firstRowLayout"
+        android:layout_below="@+id/numberField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
         <Button
             android:id="@+id/clearBtn"
             android:text="@string/clear"
@@ -26,7 +46,7 @@
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/signBtn"
-            android:text="@string/eight"
+            android:text="@string/sign"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
@@ -44,6 +64,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
+        android:background="#cccccc"
         android:id="@+id/secondRowLayout"
         android:layout_below="@+id/firstRowLayout"
         android:layout_width="match_parent"
@@ -74,6 +95,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
+        android:background="#cccccc"
         android:id="@+id/thirdRowLayout"
         android:layout_below="@+id/secondRowLayout"
         android:layout_width="match_parent"
@@ -104,6 +126,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
+        android:background="#cccccc"
         android:id="@+id/fourRowLayout"
         android:layout_below="@+id/thirdRowLayout"
         android:layout_width="match_parent"
@@ -134,6 +157,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
+        android:background="#cccccc"
         android:layout_below="@+id/fourRowLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

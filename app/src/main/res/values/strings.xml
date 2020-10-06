@@ -18,4 +18,5 @@
     <string name="minus">-</string>
     <string name="plus">+</string>
     <string name="equal">=</string>
+    <string name="sign">+/-</string>
 </resources>
