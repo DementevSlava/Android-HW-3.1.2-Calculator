@@ -144,15 +144,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String tmp = numberField.getText().toString();
-                Double number = Double.parseDouble(tmp);
-                if (number > 0){
-                    number = 0 - number;
-                } else {
-                    number = Math.abs(number);
-                }
+                if (tmp.contains("-")){
+                    tmp = tmp.substring(1);
+                    numberField.setText(tmp);
+                } else{
+                    StringBuilder sb = new StringBuilder(tmp);
+                    sb.insert(0, "-");
+                    numberField.setText(sb.toString().replace('.', ','));
 
-                numberField.setText(number.toString().replace('.', ','));
-                // resultField.setText("");
+                }
             }
         });
 
