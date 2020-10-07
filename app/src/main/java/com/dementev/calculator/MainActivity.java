@@ -143,15 +143,32 @@ public class MainActivity extends AppCompatActivity {
         signBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operationClick(v);
+                String tmp = numberField.getText().toString();
+                Double number = Double.parseDouble(tmp);
+                if (number > 0){
+                    number = 0 - number;
+                } else {
+                    number = Math.abs(number);
+                }
+
+                numberField.setText(number.toString().replace('.', ','));
+                // resultField.setText("");
             }
         });
 
         percentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operationClick(v);
+                try {
+                    Double number = Double.valueOf(numberField.getText().toString());
+                    Double tpm = operand * number / 100;
+                    numberField.setText(tpm.toString());
+                } catch (Exception e){
+                    numberField.setText("0");
+                }
+
             }
+
         });
 
         divBtn.setOnClickListener(new View.OnClickListener() {
@@ -218,35 +235,33 @@ public class MainActivity extends AppCompatActivity {
             switch (lastOperation) {
                 case "=": {
                     operand = number;
+
+                    break;
                 }
-                break;
-                case "/":
+                case "/": {
                     if (number == 0) {
                         operand = 0.0;
                     } else {
                         operand /= number;
                     }
                     break;
-                case "*":
+                }
+                case "*": {
                     operand *= number;
                     break;
-                case "+":
+                }
+                case "+": {
                     operand += number;
                     break;
-                case "-":
+                }
+                case "-": {
                     operand -= number;
                     break;
+                }
             }
-        }
-        if (operation.equals("+/-")){
-            operand = 0 - number;
         }
         resultField.setText(operand.toString().replace('.', ','));
         numberField.setText("");
-       if (operation.equals("%")) {
-           operand = number / 100;
-           numberField.setText(operand.toString());
-        }
     }
 
     public void clickNumber(View view) {
